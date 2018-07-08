@@ -81,9 +81,9 @@ static async Task TweetBookList(string key, HttpClient client, BookList bookList
 
 public static async Task Run(TimerInfo myTimer, IQueryable<BookEntity> inputTable, IAsyncCollector<BookEntity> outputTable, TraceWriter log)
 {
+    log.Info($"Execution Time: {DateTime.Now}");
+
     HttpClient client = new HttpClient();
-    
-    log.Info($"Excution Time: {DateTime.Now}");
 
     BookList bookList = await FetchBookList(client, CATEGORY_ID_COMICS, log);
     await TweetBookList("COMICS", client, bookList, inputTable, outputTable, log);
