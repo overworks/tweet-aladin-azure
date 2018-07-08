@@ -16,7 +16,7 @@ const int CATEGORY_ID_COMICS = 2551;
 const int CATEGORY_ID_LNOVEL = 50927;
 const int CATEGORY_ID_ITBOOK = 351;
 
-static async Task<BookList> Request(HttpClient client, int categoryId, TraceWriter log)
+static async Task<BookList> FetchBookList(HttpClient client, int categoryId, TraceWriter log)
 {
     string ttbKey = Environment.GetEnvironmentVariable("TTB_KEY");
     string partnerId = Environment.GetEnvironmentVariable("PARTNER_ID");
@@ -29,7 +29,7 @@ static async Task<BookList> Request(HttpClient client, int categoryId, TraceWrit
     return JsonConvert.DeserializeObject<BookList>(res);
 }
 
-static async Task TweetBook(string key, HttpClient client, BookList bookList, IQueryable<BookEntity> inputTable, IAsyncCollector<BookEntity> outputTable, TraceWriter log)
+static async Task TweetBookList(string key, HttpClient client, BookList bookList, IQueryable<BookEntity> inputTable, IAsyncCollector<BookEntity> outputTable, TraceWriter log)
 {
     string consumerKey = Environment.GetEnvironmentVariable(key + "_CONSUMER_KEY");
     string consumerSecret = Environment.GetEnvironmentVariable(key + "_CONSUMER_SECRET");
@@ -71,7 +71,6 @@ static async Task TweetBook(string key, HttpClient client, BookList bookList, IQ
             newEntity.Name = book.title;
 
             await outputTable.AddAsync(newEntity);
-            //break;
         }
         catch (Exception e)
         {
@@ -86,12 +85,12 @@ public static async Task Run(TimerInfo myTimer, IQueryable<BookEntity> inputTabl
     
     log.Info($"Excution Time: {DateTime.Now}");
 
-    BookList bookList = await Request(client, CATEGORY_ID_COMICS, log);
-    await TweetBook("COMICS", client, bookList, inputTable, outputTable, log);
+    BookList bookList = await FetchBookList(client, CATEGORY_ID_COMICS, log);
+    await TweetBookList("COMICS", client, bookList, inputTable, outputTable, log);
 
-    bookList = await Request(client, CATEGORY_ID_LNOVEL, log);
-    await TweetBook("LNOVEL", client, bookList, inputTable, outputTable, log);
+    bookList = await FetchBookList(client, CATEGORY_ID_LNOVEL, log);
+    await TweetBookList("LNOVEL", client, bookList, inputTable, outputTable, log);
 
-    bookList = await Request(client, CATEGORY_ID_ITBOOK, log);
-    await TweetBook("ITBOOK", client, bookList, inputTable, outputTable, log);
+    bookList = await FetchBookList(client, CATEGORY_ID_ITBOOK, log);
+    await TweetBookList("ITBOOK", client, bookList, inputTable, outputTable, log);
 }

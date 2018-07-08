@@ -57,6 +57,7 @@ public class Book
 
     public override string ToString()
     {
+        string additionalInfo = this.additionalInfo; // 여러번 계산할 수도 있으니...
         string status = title + additionalInfo;
 
         // 트위터는 140자까지이나, 링크가 23자를 차지하므로 117까지 계산해서 카운트한다.
