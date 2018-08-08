@@ -7,7 +7,28 @@ public class BookEntity : TableEntity
     public string Name { get; set; }
 }
 
-public class Book
+public class SubBook
+{
+    public int itemId { get; set; }
+    public string isbn { get; set; }
+    public int priceSales { get; set; }
+    public string link { get; set; }
+}
+
+public class FileFormat
+{
+    public string fileType { get; set; }
+    public int fileSize { get; set; }
+}
+
+public class SubInfo
+{
+    public List<SubBook> paperBookList { get; set; }
+    public List<SubBook> ebookList { get; set; }
+    public List<FileFormat> fileFormatList { get; set; }
+}
+
+public class Product
 {
     public string title { get; set; }
     public string link { get; set; }
@@ -29,6 +50,7 @@ public class Book
     public int salesPoint { get; set; }
     public bool fixedPrice { get; set; }
     public int customerReviewRank { get; set; }
+    public SubInfo subInfo { get; set; }
 
     public string additionalInfo
     {
@@ -84,7 +106,7 @@ public class Book
     }
 }
 
-public class BookList
+public class ProductList
 {
     public string version { get; set; }
     public string logo { get; set; }
@@ -97,5 +119,5 @@ public class BookList
     public string query { get; set; }
     public int searchCategoryId { get; set; }
     public string searchCategoryName { get; set; }
-    public IList<Book> item { get; set; }
+    public List<Product> item { get; set; }
 }
