@@ -7,3 +7,9 @@
 - [Microsoft Azure Functions](https://azure.microsoft.com/ko-kr/services/functions/) (1.0)
 - [Microsoft Azure Table Storage](https://azure.microsoft.com/ko-kr/services/storage/tables/)
 - [CoreTweet](https://coretweet.github.io/)
+
+## 현재 운용중인 계정
+
+- [신간 만화 알림봇](https://twitter.com/comics_notifier)
+- [신간 라이트노벨 알림봇](https://twitter.com/lnovel_notifier)
+- [신간 IT서적 알림봇](https://twitter.com/itbook_notifier)
