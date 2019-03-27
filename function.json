@@ -1,26 +1,26 @@
 {
-    "bindings": [
-      {
-        "name": "myTimer",
-        "type": "timerTrigger",
-        "direction": "in",
-        "schedule": "0 0 */6 * * *"
-      },
-      {
-        "type": "table",
-        "name": "inputTable",
-        "tableName": "BookEntity",
-        "take": 50,
-        "connection": "AzureWebJobsStorage",
-        "direction": "in"
-      },
-      {
-        "type": "table",
-        "name": "outputTable",
-        "tableName": "BookEntity",
-        "connection": "AzureWebJobsStorage",
-        "direction": "out"
-      }
-    ],
-    "disabled": false
-  }
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 0 0,3,9,13 * * *"
+    },
+    {
+      "type": "table",
+      "name": "cloudTable",
+      "tableName": "BookEntity",
+      "take": 50,
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    },
+    {
+      "type": "table",
+      "name": "outputTable",
+      "tableName": "BookEntity",
+      "connection": "AzureWebJobsStorage",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}

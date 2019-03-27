@@ -4,7 +4,7 @@
 
 ## 환경
 
-- [Microsoft Azure Functions](https://azure.microsoft.com/ko-kr/services/functions/) (1.0)
+- [Microsoft Azure Functions](https://azure.microsoft.com/ko-kr/services/functions/) (2.0)
 - [Microsoft Azure Table Storage](https://azure.microsoft.com/ko-kr/services/storage/tables/)
 - [CoreTweet](https://coretweet.github.io/)
 
