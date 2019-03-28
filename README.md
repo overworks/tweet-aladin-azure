@@ -10,6 +10,8 @@
 
 ## 현재 운용중인 계정
 
-- [신간 만화 알림봇](https://twitter.com/comics_notifier)
-- [신간 라이트노벨 알림봇](https://twitter.com/lnovel_notifier)
-- [신간 IT서적 알림봇](https://twitter.com/itbook_notifier)
+- ~~[신간 만화 알림봇](https://twitter.com/comics_notifier)~~
+- ~~[신간 라이트노벨 알림봇](https://twitter.com/lnovel_notifier)~~
+- ~~[신간 IT서적 알림봇](https://twitter.com/itbook_notifier)~~
+
+현재 위 계정들은 [aladin-newbook-notifier](https://github.com/overworks/aladin-newbook-notifier)를 통해 운용되고 있습니다.
